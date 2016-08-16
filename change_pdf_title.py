@@ -1,5 +1,4 @@
 # change pdf title
-# have some failure cases which move a file to a null file
 #import PyPDF2 as pyPdf
 from __future__ import print_function
 from PyPDF2 import PdfFileWriter, PdfFileReader
@@ -32,16 +31,12 @@ for fn in filenames:
             title = get_pdf_title(pdf_dir+'/'+fn)
             if title is None:
                 continue
+            # res_name = "16 cvpr "+title+'.pdf'
+            for c in illegal_chars:
+                title = title.replace(c,"")
             res_name = "16 cvpr "+title+'.pdf'
-            try:
-                shutil.move(pdf_dir+'/'+fn, pdf_dir + '/'+ res_name)
-            except:
-                print(res_name)
-                for c in illegal_chars:
-                    title = title.replace(c,"")
-                res_name = "16 cvpr "+title+'.pdf'
-                print(res_name)
-                shutil.move(pdf_dir+'/'+fn, pdf_dir + '/'+ res_name)
+            # print(res_name)
+            shutil.move(pdf_dir+'/'+fn, pdf_dir + '/'+ res_name)
 
             print("{} ---> {}".format(fn, res_name))
 
