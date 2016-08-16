@@ -1,4 +1,4 @@
-# change pdf title
+# change pdf filename according to its title
 #import PyPDF2 as pyPdf
 from __future__ import print_function
 from PyPDF2 import PdfFileWriter, PdfFileReader
