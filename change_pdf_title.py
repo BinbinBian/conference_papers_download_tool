@@ -1,4 +1,5 @@
 # change pdf title
+# have some failure cases which move a file to a null file
 #import PyPDF2 as pyPdf
 from __future__ import print_function
 from PyPDF2 import PdfFileWriter, PdfFileReader
